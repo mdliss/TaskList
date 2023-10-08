@@ -1,0 +1,170 @@
+/* Define colors */
+:root {
+    --dark: #000000; /* Black */
+    --darker: #800000; /* Red */
+    --darkest: #111827;
+    --gray: #6B7280;
+    --light: #FFFFFF; /* White */
+    --black: #000000; /* Black */
+    --task-bg: var(--darker); /* Red background for tasks */
+}
+
+/* Global styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--light); /* Change background color to white */
+    color: var(--light); /* Change text color to black */
+}
+
+header {
+    padding: 1.5rem 1rem; /* Adjusted padding for smaller screens */
+    max-width: 90%; /* Adjusted max-width for 13-inch MacBook */
+    width: 100%;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: 2rem; /* Slightly reduced font size */
+    font-weight: 300;
+    color: var(--dark); /* Change text color to black */
+    margin-bottom: 1rem;
+    text-align: left; /* Center align the title */
+}
+
+#new-task-form {
+    display: flex;
+    justify-content: space-between; /* Add this line to place items at each end */
+    align-items: center;
+    margin-top: 1rem; /* Add spacing to the top of the form */
+}
+
+input,
+button {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+#new-task-input {
+    flex: 1 1 0%;
+    background-color: var(--task-bg); /* Red background for tasks */
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    color: var(--light);
+    font-size: 1.125rem; /* Slightly reduced font size */
+    width: 100%; /* Take up the full width */
+}
+
+#new-task-input::placeholder {
+    color: var(--light); /* Change placeholder text color to white */
+}
+
+#new-task-submit {
+    font-size: 1.125rem; /* Slightly reduced font size */
+    font-weight: 700;
+    background-image: linear-gradient(to right, var(--task-bg), var(--task-bg)); /* Red */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+    transition: 0.4s;
+    margin-top: 1rem; /* Add spacing to the top of the submit button */
+}
+
+#new-task-submit:hover {
+    opacity: 0.8;
+}
+
+#new-task-submit:active {
+    opacity: 0.6;
+}
+
+main {
+    flex: 1 1 0%;
+    padding: 1.5rem 1rem; /* Adjusted padding for smaller screens */
+    max-width: 90%; /* Adjusted max-width for 13-inch MacBook */
+    width: 100%;
+    margin: 0 auto;
+    text-align: center; /* Center align content within the main section */
+}
+
+/* Task list styles */
+.task-list {
+    padding: 1rem;
+    text-align: left; /* Center align content within the task list */
+}
+
+.task-list h2 {
+    font-size: 1.25rem; /* Slightly reduced font size */
+    font-weight: 300;
+    color: var(--dark); /* Change text color to black */
+    margin-bottom: 1rem;
+}
+
+#tasks .task {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--task-bg); /* Red background for tasks */
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    align-items: center; /* Center align task content vertically */
+}
+
+#tasks .task .content {
+    flex: 1 1 0%;
+}
+
+#tasks .task .content .text {
+    color: var(--dark); /* Change text color to black */
+    font-size: 1rem; /* Reduced font size */
+    width: 100%;
+    display: block;
+    transition: 0.4s;
+}
+
+#tasks .task.completed .content .text::before {
+    content: '\2713'; /* Unicode checkmark character */
+    margin-right: 0.5rem;
+}
+
+#tasks .task .content .text:not(:read-only) {
+    color: var(--darker); /* Red */
+}
+
+.task .actions {
+    display: flex;
+    margin: 0 -0.5rem;
+}
+
+.task .actions button {
+    cursor: pointer;
+    margin: 0 0.5rem;
+    font-size: 1rem; /* Reduced font size */
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.4s;
+}
+
+.task .actions button:hover {
+    opacity: 0.8;
+}
+
+.task .actions button:active {
+    opacity: 0.6;
+}
+
+.task .actions .edit {
+    background-image: linear-gradient(to right, var(--task-bg), var(--task-bg)); /* Red */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
